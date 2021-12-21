@@ -2,4 +2,4 @@
 	import { Foo } from '$lib';
 </script>
 
-<Foo message="HOME" />
+<Foo message="STATUS" />
