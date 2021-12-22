@@ -40,4 +40,8 @@
 			
 			&.extended
 				height: $size-footer-height-tablet-extended
+
+	@media (max-height: $screen-mobile-w)
+		footer
+			display: none
 </style>

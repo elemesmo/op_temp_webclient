@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Nav } from '$lib';
+	import { Nav, Greetings } from '$lib';
 	export let nav: NavMenu;
 	$: extended = $page.path === '/';
 </script>
 
 <header class:extended>
 	<Nav {extended} {nav} />
+	<Greetings {extended} />
 </header>
 
 <div class="header-spacer" class:extended />
@@ -43,6 +44,11 @@
 			height: $size-header-height-mobile
 			
 			&.extended
-				height: $size-header-height-tablet-extended
+				height: $size-header-height-mobile-extended
+
+	@media (max-height: $screen-mobile-w)
+		header,
+		.header-spacer
+			height: $size-header-height-mobile-portrait
 
 </style>

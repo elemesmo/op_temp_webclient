@@ -41,8 +41,8 @@
     position: fixed
     width: 100%
     max-width: $size-main-max-width
-    height: 40vh
-    top: 30vh
+    height: calc(100vh - calc($size-footer-height-desktop-extended + $size-header-height-desktop-extended))
+    top: $size-header-height-desktop-extended
     left: 50%
     transform: translate(-50%, 0)
     display: flex
@@ -131,4 +131,12 @@
 
       .title
         font-size: $font-header-400
+
+	@media (max-height: $screen-mobile-w)
+    .home-nav
+      top: $size-header-height-desktop-extended + 10vh
+      
+    ul a
+        width: 45%
+        padding-top: 45%
 </style>

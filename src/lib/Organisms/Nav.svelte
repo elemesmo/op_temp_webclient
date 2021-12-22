@@ -31,11 +31,11 @@
 		max-width: 350px
 		margin: 0 auto
 		margin-top: 20px
-		transition: width $timing-element ease
 		align-content: center
 		justify-content: center
 		align-items: center
 		pointer-events: none
+		transition: width $timing-element ease, margin $timing-element ease
 	
 	nav.extended 
 		max-width: 500px
@@ -66,17 +66,24 @@
 			width: 100%
 
 	@media (max-width: $screen-mobile-w)
-		nav
+		nav:not(.extended)
 			margin-top: 30px
 
-		ul
+		nav:not(.extended) ul
 			margin-top: 5px
 			
-		.logo
+		nav:not(.extended) .logo
 			transform: translate(0px, -35px) scale(.5)
 			position: absolute
 
 		.extended .logo
-			transform: translate(0px, 5px) scale(1)
+			transform: translate(0, 0) scale(1)
+	
+	@media (max-height: $screen-mobile-w)
+		nav:not(.extended)
+			margin-top: 10px
+
+		.extended .logo
+			transform: translate(0, -30px) scale(.4)
 
 </style>

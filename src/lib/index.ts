@@ -1,6 +1,8 @@
 export { default as Foo } from './Foo.svelte';
 
 /** ATOMS */
+export { default as Greetings } from './Atoms/Greetings.svelte';
+export { default as Greet } from './Atoms/Greetings';
 export { default as Icon } from './Atoms/Icon.svelte';
 export * as Icons from './Atoms/Icons';
 
