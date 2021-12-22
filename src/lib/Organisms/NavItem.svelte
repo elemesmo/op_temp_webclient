@@ -9,7 +9,7 @@
 <li class:extended class:active={$page.path === menu.path}>
 	<a class="item_link" href={menu.path} sveltekit:prefetch>
 		<div class="icon">
-			<Icon icon={menu.icon} size={32} type={menu.icon ? 'L' : 'F'} />
+			<Icon icon={menu.icon} size="32px" type={menu.icon ? 'L' : 'F'} />
 		</div>
 		<div class="text">
 			{menu.title}

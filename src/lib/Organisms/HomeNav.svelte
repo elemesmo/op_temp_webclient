@@ -12,7 +12,7 @@
 			<li>
 				<a href={navItem.path}>
 					<span class="icon">
-						<Icon type="L" icon={navItem.icon} size={100} unit="%" />
+						<Icon type="L" icon={navItem.icon} size="100%" />
 					</span>
 					<span class="title">
 						{navItem.title}

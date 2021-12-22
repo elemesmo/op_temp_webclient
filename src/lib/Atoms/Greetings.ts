@@ -1,21 +1,21 @@
-const portuguese = ['Bom dia_', 'Boa tarde_', 'Boa noite_'];
-const english = ['Good morning_', 'Good Afternoon_', 'Good Night_'];
-const japaneseRomagi = ['Ohayo_', "Kon'nichiwa_", 'Oyasuminasai_'];
+const portuguese = ['bom dia_', 'boa tarde_', 'boa noite_'];
+const english = ['good morning_', 'good afternoon_', 'good night_'];
+const japaneseRomagi = ['ohayo_', "kon'nichiwa_", 'oyasuminasai_'];
 const japaneseHiragana = ['おはよう_', 'こんにちは_', 'おやすみなさい_'];
 const languages = [portuguese, japaneseRomagi, english, japaneseHiragana];
 const specials = [
-	"Hi, it's late, get some sleep. 🛌",
-	'😴 Do you sleep at all?',
-	'👻 Hello Zombie. '
+	"hi, it's late, get some sleep. 🛌",
+	'😴 do you sleep at all?',
+	'👻 hello zombie.'
 ];
 const generic = [
-	'Oi_',
-	'Bem vindo_',
-	'Hi_',
-	'Welcome_',
-	'Ya_',
-	'Yo_',
-	'Irasshaimase_',
+	'oi_',
+	'bem vindo_',
+	'hi_',
+	'welcome_',
+	'ya_',
+	'yo_',
+	'irasshaimase_',
 	'やあ_',
 	'おやすみなさい_'
 ];

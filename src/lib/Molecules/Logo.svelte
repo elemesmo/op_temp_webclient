@@ -14,10 +14,10 @@
 
 <div class="ra-logo" class:extended={shouldExtend} style={`fill: ${fill}`}>
 	<div class="logo-grid">
-		<Icon icon="BracketLeft" type={logoType} size={bracketSize} />
-		<div class="icon"><Icon icon="Logo" type={logoType} size={logoIcon} /></div>
-		<div class="text"><Icon icon="LogoText" type={logoType} size={logoIcon} /></div>
-		<Icon icon="BracketRight" type={logoType} size={bracketSize} />
+		<Icon icon="BracketLeft" type={logoType} size={`${bracketSize}px`} />
+		<div class="icon"><Icon icon="Logo" type={logoType} size={`${logoIcon}px`} /></div>
+		<div class="text"><Icon icon="LogoText" type={logoType} size={`${logoIcon}px`} /></div>
+		<Icon icon="BracketRight" type={logoType} size={`${bracketSize}px`} />
 	</div>
 </div>
 
