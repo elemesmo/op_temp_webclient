@@ -74,13 +74,10 @@
 
 		.logo
 			position: absolute
+			margin-top: 30px
 			
 		nav:not(.extended) .logo
-			transform: translate(0px, -35px) scale(.5)
-
-		.extended .logo
-			margin-top: 33px
-			transform: translate(0, 0) scale(1)
+			transform: translate(0px, -45px) scale(.5)
 	
 	@media (max-height: $screen-mobile-w)
 		nav:not(.extended)
