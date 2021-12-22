@@ -1,22 +1,23 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').ErrorLoad} */
-	export function load({ error, status }) {
+<script context="module" lang="ts">
+	export function load({ error, status, page }) {
 		return {
 			props: {
 				code: status,
-				message: error.message
+				message: error.message,
+				key: page.path
 			}
 		};
 	}
 </script>
 
 <script>
-	import { page } from '$app/stores';
 	import { Icon } from '$lib';
 
 	export let code;
 	export let message;
-	$: isDrops = $page.path === '/drops';
+	export let key;
+
+	$: isDrops = key === '/drops';
 </script>
 
 <div class="http-error" class:comming-soon={isDrops}>
@@ -36,7 +37,7 @@
 
   .http-error
     width: 100%
-    height: 100vh
+    height: calc(100vh - $size-header-height-desktop - $size-footer-height-desktop)
     display: grid
     align-items: center
     position: absolute

@@ -1,6 +1,7 @@
 export { default as Foo } from './Foo.svelte';
 
 /** ATOMS */
+export { default as PageTransition } from './Atoms/PageTransition.svelte';
 export { default as Greetings } from './Atoms/Greetings.svelte';
 export { default as Greet } from './Atoms/Greetings';
 export { default as Icon } from './Atoms/Icon.svelte';

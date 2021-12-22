@@ -1,21 +1,27 @@
-<script lang="ts">
-	import { page } from '$app/stores';
-	$: extended = $page.path === '/';
+<script>
+	import { fade } from 'svelte/transition';
+	export let refresh = '';
+	export let duration = 300;
 </script>
 
-<footer class:extended />
+{#key refresh}
+	<div class="page" in:fade={{ duration, delay: duration }} out:fade={{ duration }}>
+		<slot />
+		<div class="footer-spacer" class:extended={refresh === '/'} />
+	</div>
+{/key}
 
 <style lang="sass">
 	@use "../../styles/reusables" as *
 
-	footer
+	div.page
+		position: absolute
 		width: 100%
-		background-color: $color-primary-800
-		position: fixed
-		bottom: 0
+		top: 0
 		left: 0
+		z-index: -1
 
-	footer
+	.footer-spacer
 		height: $size-footer-height-desktop
 		transition: height $timing-element ease
 
@@ -23,20 +29,20 @@
 			height: $size-footer-height-desktop-extended
 
 	@media (max-width: $screen-tablet-w)
-		footer
+		.footer-spacer
 			height: $size-footer-height-tablet
 
 			&.extended
 				height: $size-footer-height-tablet-extended
 
 	@media (max-width: $screen-mobile-w)
-		footer
+		.footer-spacer
 			height: $size-footer-height-mobile
 			
 			&.extended
 				height: $size-footer-height-tablet-extended
 
 	@media (max-height: $screen-mobile-w)
-		footer
+		.footer-spacer
 			display: none
 </style>
