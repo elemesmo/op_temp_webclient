@@ -1,13 +1,14 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import { Nav } from '$lib';
-
+	export let nav: NavMenu;
 	$: extended = $page.path === '/';
 </script>
 
 <header class:extended>
-	<Nav {extended} />
+	<Nav {extended} {nav} />
 </header>
+
 <div class="header-spacer" class:extended />
 
 <style lang="sass">

@@ -9,6 +9,7 @@ export { default as Logo } from './Molecules/Logo.svelte';
 export { default as Title } from './Molecules/Title.svelte';
 
 /** ORGANISMS */
+export { default as HomeNav } from './Organisms/HomeNav.svelte';
 export { default as Nav } from './Organisms/Nav.svelte';
 export { default as NavItem } from './Organisms/NavItem.svelte';
 

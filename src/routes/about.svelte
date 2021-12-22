@@ -3,3 +3,9 @@
 </script>
 
 <Foo message="ABOUT" />
+<Foo message="ABOUT" />
+<Foo message="ABOUT" />
+<Foo message="ABOUT" />
+<Foo message="ABOUT" />
+<Foo message="ABOUT" />
+<Foo message="ABOUT" />

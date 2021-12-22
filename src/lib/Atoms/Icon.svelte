@@ -32,10 +32,11 @@
 </svg>
 
 <style lang="sass">
-  $transitionDuration: 0.3s
-  .Icon
+	@use "../../styles/reusables" as *
+  
+	.Icon
     display: inline-block
-    transition: fill $transitionDuration ease, width $transitionDuration ease, height $transitionDuration ease
+    transition: fill $timing-element ease, width $timing-element ease, height $timing-element ease
 
     &.automargin
       margin-left: auto

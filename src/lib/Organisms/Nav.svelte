@@ -2,22 +2,12 @@
 	import { Logo, NavItem } from '$lib';
 
 	export let extended: boolean;
-
-	const navMenuMock: NavMenu = {
-		left: [
-			{ path: '/', title: 'home', icon: '' },
-			{ path: '/about', title: 'about', icon: 'About' }
-		],
-		right: [
-			{ path: '/drops', title: 'drops', icon: 'Drops' },
-			{ path: '/status', title: 'status', icon: 'Status' }
-		]
-	};
+	export let nav: NavMenu;
 </script>
 
 <nav class:extended>
 	<ul class="menu_container_left">
-		{#each navMenuMock.left as menu, i}
+		{#each nav.left as menu}
 			<NavItem {menu} {extended} />
 		{/each}
 	</ul>
@@ -27,7 +17,7 @@
 	</div>
 
 	<ul class="menu_container_right">
-		{#each navMenuMock.right as menu, i}
+		{#each nav.right as menu}
 			<NavItem {menu} {extended} />
 		{/each}
 	</ul>
@@ -67,6 +57,9 @@
 
 	.extended ul
 		opacity: 0
+	
+	.logo
+		transition: transform $timing-element ease
 
 	@media (max-width: $screen-tablet-w)
 		nav.extended
@@ -75,9 +68,12 @@
 	@media (max-width: $screen-mobile-w)
 		nav
 			margin-top: 30px
+
+		ul
+			margin-top: 5px
 			
 		.logo
-			transform: translate(0px, -30px) scale(.5)
+			transform: translate(0px, -35px) scale(.5)
 			position: absolute
 
 		.extended .logo
