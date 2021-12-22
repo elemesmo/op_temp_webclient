@@ -71,12 +71,15 @@
 
 		nav:not(.extended) ul
 			margin-top: 5px
+
+		.logo
+			position: absolute
 			
 		nav:not(.extended) .logo
 			transform: translate(0px, -35px) scale(.5)
-			position: absolute
 
 		.extended .logo
+			margin-top: 33px
 			transform: translate(0, 0) scale(1)
 	
 	@media (max-height: $screen-mobile-w)
