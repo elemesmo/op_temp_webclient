@@ -3,9 +3,10 @@
 	import { Icon } from '$lib';
 
 	export let menu: NavItem;
+	export let extended: boolean;
 </script>
 
-<li class:extended={$page.path === '/'} class:active={$page.path === menu.path}>
+<li class:extended class:active={$page.path === menu.path}>
 	<a class="item_link" href={menu.path} sveltekit:prefetch>
 		<div class="icon">
 			<Icon icon={menu.icon} size={32} type={menu.icon ? 'L' : 'F'} />
@@ -36,9 +37,6 @@
 		border-bottom: 1px solid transparent
 		transition: border $timing-menu ease, color $timing-menu ease
 		pointer-events: all
-    
-		&.extended
-			pointer-events: none
       
 		.text
 			opacity: 1
@@ -77,6 +75,8 @@
 			transform: translate(-50%, 0)
 			transition: opacity $timing-menu ease
 
+	.extended .item_link
+		pointer-events: none
 	
 	.item_link:hover,
 	li.active .item_link

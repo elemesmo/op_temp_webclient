@@ -9,7 +9,7 @@
 
 	$: shouldExtend = $page.path === '/' && extendOnHome;
 	$: bracketSize = tiny ? 25 : shouldExtend ? 90 : 55;
-	$: logoIcon = tiny ? 20 : shouldExtend ? 75 : 35;
+	$: logoIcon = tiny ? 20 : shouldExtend ? 65 : 35;
 </script>
 
 <div class="ra-logo" class:extended={shouldExtend} style={`fill: ${fill}`}>

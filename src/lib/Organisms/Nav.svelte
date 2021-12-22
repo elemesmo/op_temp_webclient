@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { page } from '$app/stores';
 	import { Logo, NavItem } from '$lib';
-	
+
+	export let extended: boolean;
+
 	const navMenuMock: NavMenu = {
 		left: [
 			{ path: '/', title: 'home', icon: '' },
@@ -14,10 +15,10 @@
 	};
 </script>
 
-<nav class:extended={$page.path === '/'}>
+<nav class:extended>
 	<ul class="menu_container_left">
 		{#each navMenuMock.left as menu, i}
-			<NavItem {menu} />
+			<NavItem {menu} {extended} />
 		{/each}
 	</ul>
 
@@ -27,7 +28,7 @@
 
 	<ul class="menu_container_right">
 		{#each navMenuMock.right as menu, i}
-			<NavItem {menu} />
+			<NavItem {menu} {extended} />
 		{/each}
 	</ul>
 </nav>
@@ -39,7 +40,7 @@
 		display: flex
 		max-width: 350px
 		margin: 0 auto
-		margin-top: 10px
+		margin-top: 20px
 		transition: width $timing-element ease
 		align-content: center
 		justify-content: center
@@ -73,7 +74,7 @@
 
 	@media (max-width: $screen-mobile-w)
 		nav
-			margin-top: 20px
+			margin-top: 30px
 			
 		.logo
 			transform: translate(0px, -30px) scale(.5)
