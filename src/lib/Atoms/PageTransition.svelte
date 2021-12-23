@@ -40,7 +40,7 @@
 			height: $size-footer-height-mobile
 			
 			&.extended
-				height: $size-footer-height-tablet-extended
+				height: $size-footer-height-mobile-extended
 
 	@media (max-height: $screen-mobile-w)
 		.footer-spacer
