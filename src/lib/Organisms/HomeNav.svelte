@@ -96,7 +96,7 @@
       &:hover
         color: $color-neutral-200
         fill: $color-neutral-200
-        box-shadow: 0 0 0 3px $color-neutral-200
+        box-shadow: 0 0 0 6px $color-neutral-200
         
         .icon,
         .title

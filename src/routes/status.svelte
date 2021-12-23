@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Foo } from '$lib';
+	import { PageTitle } from '$lib';
 </script>
 
-<Foo message="STATUS" />
+<PageTitle icon="Status">status</PageTitle>

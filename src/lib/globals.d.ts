@@ -11,9 +11,5 @@ interface NavMenu {
 	right: Array<NavItem>;
 }
 
-/** nav.json get params */
-interface GetNavParams {
-	params: {
-		hobo: boolean;
-	};
-}
+/** social menu structure */
+type SocialMenu = Array<NavItem>;
