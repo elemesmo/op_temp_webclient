@@ -15,6 +15,12 @@
 						<Icon type="L" icon={navItem.icon} size="100%" />
 					</span>
 					<span class="title">
+            {navItem.title}
+					</span>
+          <span class="icon-fx">
+            <Icon type="L" icon={navItem.icon} size="100%" />
+          </span>
+					<span class="title-fx">
 						{navItem.title}
 					</span>
 				</a>
@@ -72,15 +78,32 @@
       text-decoration: none
       box-shadow: 0 0 0 3px $color-primary-300
       transition: box-shadow $timing-element ease
+      
+      &::after
+        content: ''
+        z-index: -1
+        position: absolute
+        width: 100%
+        height: 100%
+        border-radius: 100%
+        box-shadow: 0 0 8px 15px $color-primary-200, inset 0 0 5px 8px $color-primary-200
+        opacity: 0.07
+        top: 0
+        left: 0
+        z-index: 1
+        transition: opacity $timing-element ease
 
       .icon,
-      .title
+      .icon-fx,
+      .title,
+      .title-fx
         position: absolute
         color: $color-primary-300
         fill: $color-primary-300
         transition: color $timing-element ease, transform $timing-element ease, bottom $timing-element ease, opacity $timing-element ease
 
-      .title
+      .title,
+      .title-fx
         bottom: 15%
         left: 50%
         transform: translate(-50%, 0)
@@ -88,38 +111,65 @@
         user-select: none
         opacity: 0
       
-      .icon
+      .icon,
+      .icon-fx
         top: 33.3%
         left: 33.3%
         transform: translate(-25%, -25%)
+
+      .title-fx
+        z-index: -1
+        filter: drop-shadow(0 0 4px $color-primary-200) blur(3px)
+        opacity: 0
+      
+      .icon-fx
+        z-index: -1
+        color: $color-primary-200
+        fill: $color-primary-200
+        filter: drop-shadow(0 0 4px $color-primary-200) blur(3px)
+        opacity: 0.2
 
       &:hover
         color: $color-neutral-200
         fill: $color-neutral-200
         box-shadow: 0 0 0 6px $color-neutral-200
+
         
         .icon,
         .title
           color: $color-neutral-200
           fill: $color-neutral-200
         
-        .icon
+        .icon,
+        .icon-fx
           transform: translate(-25%, -40%)
 
-        .title
+        .title,
+        .title-fx
           bottom: 20%
           opacity: 1
+
+        &::after
+          opacity: 0.2
+
+        .icon-fx
+          opacity: 0.7
+
+        .title-fx
+          opacity: 0.9
 
 
   @media (max-width: $screen-tablet-w)
     ul a
       width: 60%
       padding-top: 60%
-
-      .icon
+  
+      .icon,
+      .icon-fx
           transform: translate(-25%, -40%)
 
-      .title
+      .title,
+      .title-fx
         bottom: 20%
         opacity: 1
       
@@ -129,7 +179,8 @@
       width: 70%
       padding-top: 70%
 
-      .title
+      .title,
+      .title-fx
         font-size: $font-header-400
 
 	@media (max-height: $screen-mobile-w)
