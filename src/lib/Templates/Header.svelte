@@ -1,9 +1,15 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { Nav, Greetings } from '$lib';
+	import { Nav, Greetings, ParticlesBlock } from '$lib';
 	export let nav: NavMenu;
 	$: extended = $page.path === '/';
 </script>
+
+<div class:extended class="header-background">
+	<div class="bg-wrapper">
+		<ParticlesBlock />
+	</div>
+</div>
 
 <header class:extended>
 	<Nav {extended} {nav} />
@@ -14,13 +20,41 @@
 
 <style lang="sass">
 	@use "../../styles/reusables" as *
-  
+
+	.header-background
+		position: fixed
+		bottom: 0
+		height: 100vh
+		width: 100%
+		overflow: hidden
+		pointer-events: none
+
+		&.extended 
+			.bg-wrapper
+				top: calc(-35vh + $size-header-height-desktop-extended)
+
+		.bg-wrapper
+			width: 120%
+			height: 35vh
+			position: absolute
+			z-index: -10
+			background-color: $color-primary-800
+			top: calc(-35vh + $size-header-height-desktop)
+			left: -10%
+			right: 0
+			transform-origin: center bottom -8px
+			transform: rotate(1.6deg)
+			padding-bottom: 15px
+			transition: top $timing-element ease, transform $timing-element ease, height $timing-element ease
+			box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5)
+
 	header
 		width: 100%
-		background-color: $color-primary-800
+		background-color: transparent
 		position: fixed
 		top: 0
 		left: 0
+		pointer-events: none
 
 	header,
 	.header-spacer
@@ -31,6 +65,14 @@
 			height: $size-header-height-desktop-extended
 
 	@media (max-width: $screen-tablet-w)
+		.header-background
+			&.extended 
+				.bg-wrapper
+					top: calc(-35vh + $size-header-height-tablet-extended)
+
+			.bg-wrapper
+					top: calc(-35vh + $size-header-height-tablet)
+
 		header,
 		.header-spacer
 			height: $size-header-height-tablet
@@ -39,6 +81,14 @@
 				height: $size-header-height-tablet-extended
 
 	@media (max-width: $screen-mobile-w)
+		.header-background
+			&.extended 
+				.bg-wrapper
+					top: calc(-35vh + $size-header-height-mobile-extended)
+
+			.bg-wrapper
+					top: calc(-35vh + $size-header-height-mobile)
+
 		header,
 		.header-spacer
 			height: $size-header-height-mobile

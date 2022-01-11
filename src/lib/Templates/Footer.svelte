@@ -29,7 +29,7 @@
 
 		.bg-wrapper
 			position: absolute
-			background-color: #14131b
+			background-color: $color-primary-800
 			bottom: calc(-45vh + $size-footer-height-desktop)
 			left: -10%
 			width: 120%

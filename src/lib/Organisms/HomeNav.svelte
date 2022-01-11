@@ -36,6 +36,11 @@
 <style lang="sass">
   @use "../../styles/reusables" as *
 
+  $neon-color: $color-primary-400
+  $neon-hover-color: $color-primary-200
+  $neon-factor: 1
+  $neon-factor-hover: 1.3
+
   .control-height
     position: absolute
     height: 100vh
@@ -76,7 +81,7 @@
       border-radius: 100%
       background-color: transparent
       text-decoration: none
-      box-shadow: 0 0 0 3px $color-primary-300
+      box-shadow: 0 0 0 3px $neon-color
       transition: box-shadow $timing-element ease
       
       &::after
@@ -86,8 +91,8 @@
         width: 100%
         height: 100%
         border-radius: 100%
-        box-shadow: 0 0 8px 15px $color-primary-200, inset 0 0 5px 8px $color-primary-200
-        opacity: 0.07
+        box-shadow: 0 0 8px 15px $neon-color, inset 0 0 5px 8px $neon-color
+        opacity: clamp(0, 1, calc((0.1 * $neon-factor - 0.1) / 3))
         top: 0
         left: 0
         z-index: 1
@@ -98,8 +103,8 @@
       .title,
       .title-fx
         position: absolute
-        color: $color-primary-300
-        fill: $color-primary-300
+        color: $neon-color
+        fill: $neon-color
         transition: color $timing-element ease, transform $timing-element ease, bottom $timing-element ease, opacity $timing-element ease
 
       .title,
@@ -119,26 +124,25 @@
 
       .title-fx
         z-index: -1
-        filter: drop-shadow(0 0 4px $color-primary-200) blur(3px)
+        filter: drop-shadow(0 0 4px $neon-color) blur(3px)
         opacity: 0
       
       .icon-fx
         z-index: -1
-        color: $color-primary-200
-        fill: $color-primary-200
-        filter: drop-shadow(0 0 4px $color-primary-200) blur(3px)
-        opacity: 0.2
+        color: $neon-color
+        fill: $neon-color
+        filter: drop-shadow(0 0 4px $neon-color) blur(3px)
+        opacity: clamp(0, 1, calc(0.1 * $neon-factor - 0.1))
 
       &:hover
-        color: $color-neutral-200
-        fill: $color-neutral-200
-        box-shadow: 0 0 0 6px $color-neutral-200
+        color: $neon-hover-color
+        fill: $neon-hover-color
+        box-shadow: 0 0 0 6px $neon-hover-color
 
-        
         .icon,
         .title
-          color: $color-neutral-200
-          fill: $color-neutral-200
+          color: $neon-hover-color
+          fill: $neon-hover-color
         
         .icon,
         .icon-fx
@@ -150,13 +154,13 @@
           opacity: 1
 
         &::after
-          opacity: 0.2
+          opacity: clamp(0, 1, calc(0.12 * $neon-factor-hover))
 
         .icon-fx
-          opacity: 0.7
+          opacity: clamp(0, 1, calc(0.3 * $neon-factor-hover))
 
         .title-fx
-          opacity: 0.9
+          opacity: clamp(0, 1, calc(0.3 * $neon-factor-hover))
 
 
   @media (max-width: $screen-tablet-w)
