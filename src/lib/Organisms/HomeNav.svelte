@@ -163,6 +163,7 @@
     ul a
       width: 60%
       padding-top: 60%
+      box-shadow: 0 0 0 2px $color-primary-300
   
       .icon,
       .icon-fx
@@ -178,6 +179,7 @@
     ul a
       width: 70%
       padding-top: 70%
+      box-shadow: 0 0 0 1px $color-primary-300
 
       .title,
       .title-fx
