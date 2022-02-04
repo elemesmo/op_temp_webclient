@@ -21,7 +21,6 @@
 		margin: 0 auto
 		margin-top: 30px
 		padding: 0 20px
-		color: $color-neutral-200
 
 	.profile-pic
 		grid-area: image
@@ -29,7 +28,7 @@
 		max-height: 60px
 		object-fit: cover	
 		margin: 10px auto
-		border-radius: 40px
+		border-radius: 100px
 
 	
 	@media (max-width: $screen-tablet-w)
@@ -39,15 +38,13 @@
 			max-width: 340px
 
 		.profile-pic
-			width: 135px
+			width: 100%
 			height: 135px
 			max-height: 135px
-			border-radius: 100%
 			margin: 0 auto
 			margin-bottom: 15px
 	
 	@media (max-width: $screen-mobile-w)
 		.profile-pic
-			width: 100px
 			height: 100px
 </style>

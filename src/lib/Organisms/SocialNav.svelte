@@ -23,8 +23,8 @@
 		padding: 0
 		margin: 0 auto
 		list-style: none
-		color: #a0a0a0
-		fill: #a0a0a0
+		color: $color-neutral-400
+		fill: $color-neutral-400
 		grid-area: social
 		display: flex
 		flex-wrap: wrap
@@ -39,12 +39,11 @@
 				border-radius: 100%
 				margin: 20px auto
 				display: block
-				box-shadow: 0 0 0 2px #a0a0a0
+				box-shadow: 0 0 0 2px $color-neutral-400
 				transition: box-shadow 0.3s ease
 
 			a:hover
-				color: #f0f0f0
-				fill: #f0f0f0
-				box-shadow: 0 0 0 4px #f0f0f0
+				color: $color-primary-200
+				fill: $color-primary-200
+				box-shadow: 0 0 0 4px $color-primary-200
 </style>
-

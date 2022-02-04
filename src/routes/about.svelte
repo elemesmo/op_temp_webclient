@@ -1,21 +1,28 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
 	export const load: Load = async ({ fetch }) => {
-		const response = await fetch('/social.json');
-		if (response.ok) {
-			const result = await response.json();
-			return result.error
-				? { props: { error: result.error } }
-				: { props: { social: result.social } };
+		/** fetch social menu and pens list */
+		const responseSocial = await fetch('/social.json');
+		const responsePens = await fetch('/pens.json');
+		if (responseSocial.ok && responsePens.ok) {
+			const resultSocial = await responseSocial.json();
+			const resultPens = await responsePens.json();
+			return resultSocial.error || resultPens.error
+				? { props: { error: [resultSocial.error, resultPens.error] } }
+				: { props: { social: resultSocial.social, pens: resultPens.pens } };
 		}
-		const { message } = await response.json();
+		/** Error */
+		const resultSocial = await responseSocial.json();
+		const resultPens = await responsePens.json();
+		let message = resultSocial.message + '\r\n' + resultPens.message;
 		return { error: new Error(message) };
 	};
 </script>
 
 <script lang="ts">
-	import { Bio, PageTitle, Divisor } from '$lib';
-	export let social: SocialMenu;
+	import { Bio, PageTitle, Divisor, Pens } from '$lib';
+	export let social: SocialMenu = [];
+	export let pens: PensList = [];
 </script>
 
 <PageTitle icon="About">about</PageTitle>
@@ -25,3 +32,5 @@
 <Divisor />
 
 <PageTitle icon="Codepen">Pens</PageTitle>
+
+<Pens {pens} />

@@ -1,32 +1,37 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { Icon } from '$lib';
 	export let nav: NavMenu;
+	export let motion: MotionStatus;
 	let innerHeight;
 	let controlHeight;
 	$: topOffset = controlHeight - innerHeight;
+	$: motionStyle = motion.support ? `transform: translate(${motion.x / 2}%, ${motion.y + 5}%)` : '';
 </script>
 
-<div class="home-nav" style={`transform: translate(-50%, -${topOffset / 2}px)`}>
-	<ul>
-		{#each [...nav.left.slice(1), ...nav.right] as navItem}
-			<li>
-				<a href={navItem.path}>
-					<span class="icon">
-						<Icon type="L" icon={navItem.icon} size="100%" />
-					</span>
-					<span class="title">
-            {navItem.title}
-					</span>
-          <span class="icon-fx">
-            <Icon type="L" icon={navItem.icon} size="100%" />
-          </span>
-					<span class="title-fx">
-						{navItem.title}
-					</span>
-				</a>
-			</li>
-		{/each}
-	</ul>
+<div class="nav-wrapper" class:showing={$page.path === '/'} style={motionStyle}>
+	<div class="home-nav" style={`transform: translate(-50%, -${topOffset / 2}px)`}>
+		<ul>
+			{#each [...nav.left.slice(1), ...nav.right] as navItem}
+				<li>
+					<a href={navItem.path}>
+						<span class="icon">
+							<Icon type="L" icon={navItem.icon} size="100%" />
+						</span>
+						<span class="title">
+							{navItem.title}
+						</span>
+						<span class="icon-fx">
+							<Icon type="L" icon={navItem.icon} size="100%" />
+						</span>
+						<span class="title-fx">
+							{navItem.title}
+						</span>
+					</a>
+				</li>
+			{/each}
+		</ul>
+	</div>
 </div>
 
 <div class="control-height" bind:clientHeight={controlHeight} />
@@ -48,12 +53,23 @@
     top: 0
     left: 0
 
+  .nav-wrapper
+    opacity: 0
+    pointer-events: none
+    transform: translate(0%, 0%)
+    height: calc(100vh - calc($size-footer-height-desktop-extended + $size-header-height-desktop-extended))
+    top: $size-header-height-desktop-extended
+    transition: opacity $timing-element ease, transform .2s ease
+
+  .showing
+    opacity: 1
+    pointer-events: all
+
   .home-nav
     position: fixed
     width: 100%
     max-width: $size-main-max-width
     height: calc(100vh - calc($size-footer-height-desktop-extended + $size-header-height-desktop-extended))
-    top: $size-header-height-desktop-extended
     left: 50%
     transform: translate(-50%, 0)
     display: flex
@@ -167,7 +183,7 @@
     ul a
       width: 60%
       padding-top: 60%
-      box-shadow: 0 0 0 2px $color-primary-300
+      box-shadow: 0 0 0 2px $neon-color
   
       .icon,
       .icon-fx
@@ -176,6 +192,9 @@
       .title,
       .title-fx
         bottom: 20%
+        font-size: $font-header-400
+
+      .title
         opacity: 1
       
 
@@ -183,14 +202,13 @@
     ul a
       width: 70%
       padding-top: 70%
-      box-shadow: 0 0 0 1px $color-primary-300
-
-      .title,
-      .title-fx
-        font-size: $font-header-400
+      box-shadow: 0 0 0 1px $neon-color
 
 	@media (max-height: $screen-mobile-w)
     .home-nav
+      top: 10vh
+
+    .nav-wrapper
       top: $size-header-height-desktop-extended + 10vh
       
     ul a

@@ -2,10 +2,12 @@
 	import { page } from '$app/stores';
 	import { Nav, Greetings, ParticlesBlock } from '$lib';
 	export let nav: NavMenu;
+	export let motion: MotionStatus;
 	$: extended = $page.path === '/';
+	$: motionStyle = motion.support ? `transform: translate(${motion.x}%, ${motion.y + 5}%)` : '';
 </script>
 
-<div class:extended class="header-background">
+<div class:extended class="header-background" style={motionStyle}>
 	<div class="bg-wrapper">
 		<ParticlesBlock />
 	</div>
@@ -26,8 +28,8 @@
 		bottom: 0
 		height: 100vh
 		width: 100%
-		overflow: hidden
 		pointer-events: none
+		transition: transform .2s ease
 
 		&.extended 
 			.bg-wrapper
@@ -36,7 +38,7 @@
 		.bg-wrapper
 			width: 120%
 			height: 35vh
-			position: absolute
+			position: fixed
 			z-index: -10
 			background-color: $color-primary-800
 			top: calc(-35vh + $size-header-height-desktop)

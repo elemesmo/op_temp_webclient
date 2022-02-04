@@ -37,7 +37,7 @@
 
   .http-error
     width: 100%
-    height: calc(100vh - $size-header-height-desktop - $size-footer-height-desktop)
+    height: calc(70vh - $size-header-height-desktop - $size-footer-height-desktop)
     display: grid
     align-items: center
     position: absolute
