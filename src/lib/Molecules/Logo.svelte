@@ -22,13 +22,15 @@
 </div>
 
 <style lang="sass">
+	@use "../../styles/reusables" as *
+
 	.ra-logo
 		position: relative
 		display: inline-block
 		pointer-events: none
 		margin: 0 auto
 		font-size: 20px
-		transition: font-size 0.5s ease, transform 0.5s ease
+		transition: font-size $timing-element ease, transform $timing-element ease
 
 		&.extended
 			transform: translate(0, 0px)
