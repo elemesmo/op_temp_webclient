@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { Nav, Greetings, ParticlesBlock } from '$lib';
+	import { isLoadingHP } from '$lib/store';
 	export let nav: NavMenu;
 	export let motion: MotionStatus;
 	$: extended = $page.path === '/';
 	$: motionStyle = motion.support ? `transform: translate(${motion.x}%, ${motion.y + 5}%)` : '';
+	const handleLoaded = () => isLoadingHP.set(false);
 </script>
 
 <div class:extended class="header-background" style={motionStyle}>
 	<div class="bg-wrapper">
-		<ParticlesBlock />
+		<ParticlesBlock {handleLoaded} />
 	</div>
 </div>
 

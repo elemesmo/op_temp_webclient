@@ -14,7 +14,7 @@
 </script>
 
 <script lang="ts">
-	import { Footer, Header, PageTransition, HomeNav } from '$lib';
+	import { Footer, Header, PageTransition, HomeNav, LoadingScreen } from '$lib';
 	import '$styles/app.sass';
 	export let nav: NavMenu;
 	export let key;
@@ -44,6 +44,8 @@
 </main>
 
 <Footer {motion} />
+
+<LoadingScreen />
 
 <svelte:window on:devicemotion={handleMotion} />
 

@@ -4,6 +4,7 @@ export { default as Foo } from './Foo.svelte';
 export { default as Divisor } from './Atoms/Divisor.svelte';
 export { default as PageTransition } from './Atoms/PageTransition.svelte';
 export { default as ParticlesBlock } from './Atoms/ParticlesBlock.svelte';
+export { default as LoadingScreen } from './Atoms/LoadingScreen.svelte';
 export { default as Resume } from './Atoms/Resume.svelte';
 export { default as Visibility } from './Atoms/Visibility.svelte';
 export { default as Greetings } from './Atoms/Greetings.svelte';

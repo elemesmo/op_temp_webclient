@@ -1,13 +1,15 @@
 <script lang="ts">
-	import Particles from 'svelte-particles';
+  import Particles from 'svelte-particles';
   import particlesConfig from "$lib/particlesConfig";
   let name: string = Math.random().toString(36).substring(2, 10);
+  export let handleLoaded;
 </script>
 
 <div class="particle-block">
   <Particles
 			id={`${name}_particles`}
 			options={particlesConfig()}
+      on:particlesLoaded={handleLoaded}
 		/>
 </div>
 

@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { scrollToTop } from 'svelte-scrollto';
 	import { ParticlesBlock } from '$lib';
+import { isLoadingFP } from '$lib/store';
 	export let motion: MotionStatus;
 
 	let scrollY;
@@ -13,13 +14,14 @@
 	$: footerStyle = `transform: translate(0, ${!extended ? clamped - 25 : 0}vh);`;
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+	const handleLoaded = () => isLoadingFP.set(false);
 </script>
 
 <footer class:extended />
 <div class="footer-wrapper" style={motionStyle}>
 	<div class:extended class="footer-background" style={footerStyle}>
 		<div class="bg-wrapper">
-			<ParticlesBlock />
+			<ParticlesBlock {handleLoaded} />
 		</div>
 	</div>
 </div>

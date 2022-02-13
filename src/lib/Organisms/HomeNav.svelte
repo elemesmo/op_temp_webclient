@@ -56,10 +56,7 @@
   .nav-wrapper
     opacity: 0
     pointer-events: none
-    transform: translate(0%, 0%)
-    height: calc(100vh - calc($size-footer-height-desktop-extended + $size-header-height-desktop-extended))
-    top: $size-header-height-desktop-extended
-    transition: opacity $timing-element ease, transform .2s ease
+    transition: opacity $timing-element ease
 
   .showing
     opacity: 1
