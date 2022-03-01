@@ -37,7 +37,7 @@
 		transition-delay: 1s
 
 		path
-			stroke: $color-primary-200
+			stroke: $color-neutral-200
 			stroke-width: 3px
 			stroke-linejoin: round
 			stroke-dasharray: var(--total-lenght)
