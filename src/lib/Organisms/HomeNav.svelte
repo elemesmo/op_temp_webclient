@@ -203,7 +203,7 @@
 
 	@media (max-height: $screen-mobile-w)
     .home-nav
-      top: 10vh
+      top: 35vh
 
     .nav-wrapper
       top: $size-header-height-desktop-extended + 10vh

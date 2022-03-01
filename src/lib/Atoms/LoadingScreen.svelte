@@ -3,7 +3,7 @@
 	$: isLoading = $isLoadingHP || $isLoadingFP;
 </script>
 
-<div class:loading={isLoading} class="loading-box">
+<div class="loading-box" class:isLoading>
 	<img alt="loading..." src="/loading.gif" />
 </div>
 
@@ -26,7 +26,7 @@
 		img
 			width: 70px
 		
-	.loading
-		opacity: 1
-		pointer-events: all
+		&.isLoading
+			opacity: 1
+			pointer-events: all
 </style>

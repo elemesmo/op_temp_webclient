@@ -33,3 +33,10 @@ interface MotionStatus {
 	y: number;
 	support: boolean;
 }
+
+/** svg path type */
+interface SVGPathSimpleElement {
+	'fill-rule'?: 'evenodd' | 'nonzero' | 'inherit';
+	'clip-rule'?: 'evenodd' | 'nonzero' | 'inherit';
+	d: string;
+}

@@ -15,11 +15,13 @@
 
 <script lang="ts">
 	import { Footer, Header, PageTransition, HomeNav, LoadingScreen } from '$lib';
+	import { isLoadingHP, isLoadingFP } from '$lib/store';
 	import '$styles/app.sass';
 	export let nav: NavMenu;
 	export let key;
 	let factor = 0.4;
 	$: motion = { x: 0, y: 0, support: false };
+	$: isLoading = $isLoadingHP || $isLoadingFP;
 
 	const handleMotion = (e) => {
 		let support = e.accelerationIncludingGravity && e.accelerationIncludingGravity.x !== null;
@@ -31,19 +33,21 @@
 	};
 </script>
 
-<Header {nav} {motion} />
+<div class="layout" class:isLoading>
+	<Header {nav} {motion} />
 
-<div class="home-nav-wrapper">
-	<HomeNav {nav} {motion} />
+	<div class="home-nav-wrapper">
+		<HomeNav {nav} {motion} />
+	</div>
+
+	<main>
+		<PageTransition refresh={key}>
+			<slot {nav} />
+		</PageTransition>
+	</main>
+
+	<Footer {motion} />
 </div>
-
-<main>
-	<PageTransition refresh={key}>
-		<slot {nav} />
-	</PageTransition>
-</main>
-
-<Footer {motion} />
 
 <LoadingScreen />
 
@@ -51,6 +55,13 @@
 
 <style lang="sass">
 	@use "../styles/reusables" as *
+
+	.layout
+		opacity: 1
+		transition: opacity $timing-page ease
+
+		&.isLoading
+			opacity: 0
 
 	main
 		position: relative

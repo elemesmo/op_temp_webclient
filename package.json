@@ -2,7 +2,8 @@
   "name": "garrido-ninja-web",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev --open --host --https --port 3000",
+    "dev": "svelte-kit dev --open",
+    "hostdev": "svelte-kit dev --open --host --https --port 3000",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",

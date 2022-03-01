@@ -31,7 +31,7 @@
 		border-radius: 100px
 
 	
-	@media (max-width: $screen-tablet-w)
+	@media (max-width: $screen-mobile-w)
 		.info-container
 			grid-template-columns: 1fr
 			grid-template-areas: "image" "resume" "social"
@@ -39,12 +39,6 @@
 
 		.profile-pic
 			width: 100%
-			height: 135px
-			max-height: 135px
 			margin: 0 auto
 			margin-bottom: 15px
-	
-	@media (max-width: $screen-mobile-w)
-		.profile-pic
-			height: 100px
 </style>
