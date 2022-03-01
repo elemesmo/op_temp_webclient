@@ -1,4 +1,4 @@
-export const logoPaths: Array<SVGPathSimpleElement> = [
+const CompanyLogo: Array<SVGPathSimpleElement> = [
 	{
 		'fill-rule': 'evenodd',
 		'clip-rule': 'evenodd',
@@ -138,3 +138,5 @@ export const logoPaths: Array<SVGPathSimpleElement> = [
 		d: 'M1089.45 139.845C1095.62 136.084 1102.28 133.171 1109.23 131.183L1109.19 116.277C1101.57 118.476 1094.41 122.047 1088.07 126.816C1083.29 125.631 1078.27 125.882 1073.63 127.538V189.111L1089.45 184.347V139.845Z'
 	}
 ];
+
+export default CompanyLogo;

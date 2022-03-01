@@ -1,11 +1,9 @@
-export { default as Foo } from './Foo.svelte';
 
 /** ATOMS */
+export { default as Foo } from './Atoms/Foo.svelte';
 export { default as Divisor } from './Atoms/Divisor.svelte';
 export { default as Greetings } from './Atoms/Greetings.svelte';
-export { default as Greet } from './Atoms/Greetings';
 export { default as Icon } from './Atoms/Icon.svelte';
-export * as Icons from './Atoms/Icons';
 export { default as Invillia } from './Atoms/Invillia.svelte';
 export { default as LoadingScreen } from './Atoms/LoadingScreen.svelte';
 export { default as PageTransition } from './Atoms/PageTransition.svelte';
@@ -29,3 +27,9 @@ export { default as SocialNav } from './Organisms/SocialNav.svelte';
 export { default as Bio } from './Templates/Bio.svelte';
 export { default as Footer } from './Templates/Footer.svelte';
 export { default as Header } from './Templates/Header.svelte';
+
+/** USABLES */
+export * as Icons from './Usables/Icons';
+export { default as Greet } from './Usables/Greetings';
+export { default as CompanyLogo } from './Usables/CompanyLogo';
+export { default as ParticlesConfig } from './Usables/ParticlesConfig'

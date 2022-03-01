@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
 	export const load: Load = async ({ fetch, page }) => {
-		const response = await fetch('/nav.json');
+		const response = await fetch('/api/nav.json');
 		if (response.ok) {
 			const result = await response.json();
 			return result.error

@@ -1,25 +1,20 @@
 <script lang="ts">
-	import { logoPaths } from '$lib/CompanyLogo';
+	import { CompanyLogo } from '$lib';
 	import { onMount } from 'svelte';
 	let paths = [];
 
 	const updatePathsTotalLenght = () => {
-		for (let i = 0; i < paths.length; i++) 
-			paths[i].style.setProperty("--total-lenght", paths[i].getTotalLength() + "px")
-	}
-	
+		for (let i = 0; i < paths.length; i++)
+			paths[i].style.setProperty('--total-lenght', paths[i].getTotalLength() + 'px');
+	};
+
 	onMount(() => {
 		updatePathsTotalLenght();
 	});
 </script>
 
-<svg
-	viewBox="0 0 1190 673"
-	fill="none"
-	xmlns="http://www.w3.org/2000/svg"
-	class="invillia-logo"
->
-	{#each logoPaths as pathItem, i}
+<svg viewBox="0 0 1190 673" fill="none" xmlns="http://www.w3.org/2000/svg" class="invillia-logo">
+	{#each CompanyLogo as pathItem, i}
 		<path
 			class="path-item"
 			d={pathItem.d}

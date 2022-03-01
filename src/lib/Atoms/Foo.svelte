@@ -9,7 +9,7 @@
 <h5>{message}</h5>
 
 <style lang="sass">
-  @use "../styles/reusables" as *
+  @use "../../styles/reusables" as *
 
   h1
     color: $color-primary-200

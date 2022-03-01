@@ -2,8 +2,8 @@
 	import type { Load } from '@sveltejs/kit';
 	export const load: Load = async ({ fetch }) => {
 		/** fetch social menu and pens list */
-		const responseSocial = await fetch('/social.json');
-		const responsePens = await fetch('/pens.json');
+		const responseSocial = await fetch('/api/social.json');
+		const responsePens = await fetch('/api/pens.json');
 		if (responseSocial.ok && responsePens.ok) {
 			const resultSocial = await responseSocial.json();
 			const resultPens = await responsePens.json();
