@@ -22,7 +22,7 @@
 	};
 
 	afterUpdate(() => {
-		if ($page.path === '/') updateGreetings();
+		if ($page.url.pathname === '/') updateGreetings();
 	});
 </script>
 

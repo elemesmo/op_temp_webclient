@@ -6,10 +6,10 @@
 	let innerHeight;
 	let controlHeight;
 	$: topOffset = controlHeight - innerHeight;
-	$: motionStyle = motion.support ? `transform: translate(${motion.x / 2}%, ${motion.y + 5}%)` : '';
+	$: motionStyle = motion.support ? `transform: translate(${motion.x}%, ${motion.y * 10}px)` : '';
 </script>
 
-<div class="nav-wrapper" class:showing={$page.path === '/'} style={motionStyle}>
+<div class="nav-wrapper" class:showing={$page.url.pathname === '/'} style={motionStyle}>
 	<div class="home-nav" style={`transform: translate(-50%, -${topOffset / 2}px)`}>
 		<ul>
 			{#each [...nav.left.slice(1), ...nav.right] as navItem}
@@ -56,7 +56,7 @@
   .nav-wrapper
     opacity: 0
     pointer-events: none
-    transition: opacity $timing-element ease
+    transition: all $timing-element ease-in-out
 
   .showing
     opacity: 1

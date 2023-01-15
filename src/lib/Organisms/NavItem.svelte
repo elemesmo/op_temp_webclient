@@ -6,7 +6,7 @@
 	export let extended: boolean;
 </script>
 
-<li class:extended class:active={$page.path === menu.path}>
+<li class:extended class:active={$page.url.pathname === menu.path}>
 	<a class="item_link" href={menu.path} sveltekit:prefetch>
 		<div class="icon">
 			<Icon icon={menu.icon} size="32px" type={menu.icon ? 'L' : 'F'} />

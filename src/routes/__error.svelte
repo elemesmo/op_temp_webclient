@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
-	export function load({ error, status, page }) {
+	import type { ErrorLoad } from '@sveltejs/kit';
+	export const load: ErrorLoad = async ({ error, status, url }) => {
 		return {
 			props: {
 				code: status,
-				message: error.message,
-				key: page.path
+				message: error.message
 			}
 		};
 	}
@@ -15,20 +15,12 @@
 
 	export let code;
 	export let message;
-	export let key;
-
-	$: isDrops = key === '/drops';
 </script>
 
-<div class="http-error" class:comming-soon={isDrops}>
+<div class="http-error">
 	<p>
-		{#if isDrops}
-			<span><Icon icon="Drops" size="40px" type="L" top="0.40em" />Coming Soon</span>
-			Soon drops will be available
-		{:else}
-			<span>{code}</span>
-			{message}
-		{/if}
+    <span>{code}</span>
+    {message}
 	</p>
 </div>
 
@@ -44,17 +36,6 @@
     top: 0
     left: 0
     pointer-events: none
-
-    &.comming-soon p
-      background-color: $color-primary-800
-      color: $color-neutral-200
-      fill: $color-neutral-200
-      font-weight: 300
-      padding-bottom: 30px
-
-      span
-        margin: -10px 0 25px
-        font-weight: 300
 
   p
     color: white

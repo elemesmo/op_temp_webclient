@@ -1,12 +1,12 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
-	export const load: Load = async ({ fetch, page }) => {
+	export const load: Load = async ({ fetch, url }) => {
 		const response = await fetch('/api/nav.json');
 		if (response.ok) {
 			const result = await response.json();
 			return result.error
-				? { props: { error: result.error, key: page.path } }
-				: { props: { nav: result.nav, key: page.path }, stuff: { nav: result.nav } };
+				? { props: { error: result.error, key: url.pathname } }
+				: { props: { nav: result.nav, key: url.pathname }, stuff: { nav: result.nav } };
 		}
 		const { message } = await response.json();
 		return { error: new Error(message) };

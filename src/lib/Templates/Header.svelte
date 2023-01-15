@@ -4,7 +4,7 @@
 	import { isLoadingHP } from '$lib/store';
 	export let nav: NavMenu;
 	export let motion: MotionStatus;
-	$: extended = $page.path === '/';
+	$: extended = $page.url.pathname === '/';
 	$: motionStyle = motion.support ? `transform: translate(${motion.x}%, ${motion.y + 5}%)` : '';
 	const handleLoaded = () => isLoadingHP.set(false);
 </script>

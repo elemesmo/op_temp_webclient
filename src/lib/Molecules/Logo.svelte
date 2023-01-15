@@ -7,7 +7,7 @@
 	export let fill = '#000';
 	export let tiny = false;
 
-	$: shouldExtend = $page.path === '/' && extendOnHome;
+	$: shouldExtend = $page.url.pathname === '/' && extendOnHome;
 	$: bracketSize = tiny ? 25 : shouldExtend ? 90 : 55;
 	$: logoIcon = tiny ? 20 : shouldExtend ? 65 : 35;
 </script>

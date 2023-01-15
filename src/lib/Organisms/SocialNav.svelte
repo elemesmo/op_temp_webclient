@@ -8,7 +8,7 @@
 <ul class="social-menu">
 	{#each social as menu}
 		<li>
-			<a href={menu.path} title={menu.title}>
+			<a href={menu.path} title={menu.title} target="_blank">
 				<Icon icon={menu.icon} size={menuIconSize} type="F" />
 			</a>
 		</li>

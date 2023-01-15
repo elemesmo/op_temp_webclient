@@ -97,7 +97,6 @@ export const About_L = (): IconSvg => ({
   `
 });
 
-
 export const About_F = (): IconSvg => ({
 	icon: 'About',
 	svgGroup: `
@@ -418,6 +417,26 @@ export const Ethereum_L = (): IconSvg => ({
 
 export const Ethereum_F = (): IconSvg => ({
 	icon: 'Ethereum',
+	svgGroup: `
+  <g class="icon-group">
+    <path d="M30 17L22 30.8293L30 35.7683L38 30.8293L30 17ZM22 32.4756L30 44L38 32.4756L30 37.4146L22 32.4756Z" />
+  </g>
+  `
+});
+
+// ---- OPENSEA
+
+export const Opensea_L = (): IconSvg => ({
+	icon: 'Opensea',
+	svgGroup: `
+  <g class="icon-group">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M22 32.4756L30 37.4146L38 32.4756L30 44L22 32.4756ZM26.9812 37.1962L30 41.5449L33.0188 37.1962L30 39.06L26.9812 37.1962ZM23.8931 30.3527L30 34.123L36.1069 30.3527L30 19.7959L23.8931 30.3527ZM22 30.8293L30 35.7683L38 30.8293L30 17L22 30.8293Z" />
+  </g>
+  `
+});
+
+export const Opensea_F = (): IconSvg => ({
+	icon: 'Opensea',
 	svgGroup: `
   <g class="icon-group">
     <path d="M30 17L22 30.8293L30 35.7683L38 30.8293L30 17ZM22 32.4756L30 44L38 32.4756L30 37.4146L22 32.4756Z" />

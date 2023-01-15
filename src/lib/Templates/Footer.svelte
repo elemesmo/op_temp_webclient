@@ -2,13 +2,13 @@
 	import { page } from '$app/stores';
 	import { scrollToTop } from 'svelte-scrollto';
 	import { ParticlesBlock } from '$lib';
-import { isLoadingFP } from '$lib/store';
+	import { isLoadingFP } from '$lib/store';
 	export let motion: MotionStatus;
 
 	let scrollY;
 	$: showScrollTop = scrollY > 30;
 	$: scrollTopImage = 'loading.png';
-	$: extended = $page.path === '/';
+	$: extended = $page.url.pathname === '/';
 	$: clamped = extended ? 0 : Number((clamp(scrollY, 0, 25 * 4) / 4).toFixed(2));
 	$: motionStyle = `transform: translate(${motion.x}%, ${motion.y}vh);`;
 	$: footerStyle = `transform: translate(0, ${!extended ? clamped - 25 : 0}vh);`;

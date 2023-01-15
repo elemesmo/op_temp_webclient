@@ -22,7 +22,7 @@
 				font-weight: bold
 
 			i
-				font-size: $font-header-400
+				font-size: $font-header-500
 				color: green
 				animation: blink 2.3s infinite
 
