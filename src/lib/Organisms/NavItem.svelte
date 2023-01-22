@@ -7,7 +7,7 @@
 </script>
 
 <li class:extended class:active={$page.url.pathname === menu.path}>
-	<a class="item_link" href={menu.path} sveltekit:prefetch>
+	<a class="item_link" tabindex={extended ? -1 : 0} href={menu.path} sveltekit:prefetch>
 		<div class="icon">
 			<Icon icon={menu.icon} size="32px" type={menu.icon ? 'L' : 'F'} />
 		</div>

@@ -147,6 +147,7 @@
         filter: drop-shadow(0 0 4px $neon-color) blur(3px)
         opacity: clamp(0, 1, calc(0.1 * $neon-factor - 0.1))
 
+      &:focus,
       &:hover
         color: $neon-hover-color
         fill: $neon-hover-color
