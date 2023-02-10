@@ -17,7 +17,7 @@ const generic = [
 	'yo_',
 	'irasshaimase_',
 	'やあ_',
-	'おやすみなさい_'
+	'いらっしゃいませ_'
 ];
 const getTime = (now) =>
 	`<br /><span style="font-size: 1rem">It's ${now.toLocaleTimeString([], {
