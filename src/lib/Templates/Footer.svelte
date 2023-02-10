@@ -10,7 +10,7 @@
 	$: scrollTopImage = 'loading.png';
 	$: extended = $page.url.pathname === '/';
 	$: clamped = extended ? 0 : Number((clamp(scrollY, 0, 25 * 4) / 4).toFixed(2));
-	$: motionStyle = `transform: translate(${motion.x}%, ${motion.y}vh);`;
+	$: motionStyle = false ? `transform: translate(${motion.x}%, ${motion.y}vh);` : '';
 	$: footerStyle = `transform: translate(0, ${!extended ? clamped - 25 : 0}vh);`;
 
 	const clamp = (num, min, max) => Math.min(Math.max(num, min), max);

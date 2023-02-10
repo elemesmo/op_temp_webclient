@@ -6,7 +6,7 @@
 	let innerHeight;
 	let controlHeight;
 	$: topOffset = controlHeight - innerHeight;
-	$: motionStyle = motion.support ? `transform: translate(${motion.x}%, ${motion.y * 10}px)` : '';
+	$: motionStyle = false ? `transform: translate(${motion.x}%, ${motion.y + 3}%)` : '';
 </script>
 
 <div class="nav-wrapper" class:showing={$page.url.pathname === '/'} style={motionStyle}>

@@ -4,8 +4,14 @@
 	import { isLoadingHP } from '$lib/store';
 	export let nav: NavMenu;
 	export let motion: MotionStatus;
+	let innerHeight;
+	let controlHeight;
+	$: topOffset = controlHeight - innerHeight;
 	$: extended = $page.url.pathname === '/';
-	$: motionStyle = motion.support ? `transform: translate(${motion.x}%, ${motion.y + 5}%)` : '';
+	$: motionStyle = false
+		? `transform: translate(${motion.x}%, calc(${motion.y - 2}% + ${topOffset}px)); `
+		: `transform: translate(0, ${topOffset}px)`;
+	$: console.log(topOffset);
 	const handleLoaded = () => isLoadingHP.set(false);
 </script>
 
@@ -22,87 +28,98 @@
 
 <div class="header-spacer" class:extended />
 
+<div class="control-height" bind:clientHeight={controlHeight} />
+
+<svelte:window bind:innerHeight />
+
 <style lang="sass">
-	@use "../../styles/reusables" as *
+  @use "../../styles/reusables" as *
 
-	.header-background
-		position: fixed
-		bottom: 0
-		height: 100vh
-		width: 100%
-		pointer-events: none
-		transition: transform .2s ease
+  .control-height
+    position: absolute
+    height: 100vh
+    width: 0
+    top: 0
+    left: 0
 
-		&.extended 
-			.bg-wrapper
-				top: calc(-35vh + $size-header-height-desktop-extended)
+  .header-background
+    position: fixed
+    bottom: 0
+    height: 100vh
+    width: 100%
+    pointer-events: none
+    transition: transform .2s ease
 
-		.bg-wrapper
-			width: 120%
-			height: 35vh
-			position: fixed
-			z-index: -10
-			background-color: $color-primary-800
-			top: calc(-35vh + $size-header-height-desktop)
-			left: -10%
-			right: 0
-			transform-origin: center bottom -8px
-			transform: rotate(1.6deg)
-			padding-bottom: 15px
-			transition: top $timing-element ease, transform $timing-element ease, height $timing-element ease
-			box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5)
+    &.extended 
+      .bg-wrapper
+        top: calc(-35vh + $size-header-height-desktop-extended)
 
-	header
-		width: 100%
-		background-color: transparent
-		position: fixed
-		top: 0
-		left: 0
-		pointer-events: none
+    .bg-wrapper
+      width: 120%
+      height: 35vh
+      position: fixed
+      z-index: -10
+      background-color: $color-primary-800
+      top: calc(-35vh + $size-header-height-desktop)
+      left: -10%
+      right: 0
+      transform-origin: center bottom -8px
+      transform: rotate(1.6deg)
+      padding-bottom: 15px
+      transition: top $timing-element ease, transform $timing-element ease, height $timing-element ease
+      box-shadow: 0px 10px 10px -2px rgba(0,0,0,0.5)
 
-	header,
-	.header-spacer
-		height: $size-header-height-desktop
-		transition: height $timing-element ease
+  header
+    width: 100%
+    background-color: transparent
+    position: fixed
+    top: 0
+    left: 0
+    pointer-events: none
 
-		&.extended
-			height: $size-header-height-desktop-extended
+  header,
+  .header-spacer
+    height: $size-header-height-desktop
+    transition: height $timing-element ease
 
-	@media (max-width: $screen-tablet-w)
-		.header-background
-			&.extended 
-				.bg-wrapper
-					top: calc(-35vh + $size-header-height-tablet-extended)
+    &.extended
+      height: $size-header-height-desktop-extended
 
-			.bg-wrapper
-					top: calc(-35vh + $size-header-height-tablet)
+  @media (max-width: $screen-tablet-w)
+    .header-background
+      &.extended 
+        .bg-wrapper
+          top: calc(-35vh + $size-header-height-tablet-extended)
 
-		header,
-		.header-spacer
-			height: $size-header-height-tablet
+      .bg-wrapper
+          top: calc(-35vh + $size-header-height-tablet)
 
-			&.extended
-				height: $size-header-height-tablet-extended
+    header,
+    .header-spacer
+      height: $size-header-height-tablet
 
-	@media (max-width: $screen-mobile-w)
-		.header-background
-			&.extended 
-				.bg-wrapper
-					top: calc(-35vh + $size-header-height-mobile-extended)
+      &.extended
+        height: $size-header-height-tablet-extended
 
-			.bg-wrapper
-					top: calc(-35vh + $size-header-height-mobile)
+  @media (max-width: $screen-mobile-w)
+    .header-background
+      &.extended 
+        .bg-wrapper
+          top: calc(-35vh + $size-header-height-mobile-extended)
 
-		header,
-		.header-spacer
-			height: $size-header-height-mobile
-			
-			&.extended
-				height: $size-header-height-mobile-extended
+      .bg-wrapper
+          top: calc(-35vh + $size-header-height-mobile)
 
-	@media (max-height: $screen-mobile-w)
-		header,
-		.header-spacer
-			height: $size-header-height-mobile-portrait
+    header,
+    .header-spacer
+      height: $size-header-height-mobile
+      
+      &.extended
+        height: $size-header-height-mobile-extended
+
+  @media (max-height: $screen-mobile-w)
+    header,
+    .header-spacer
+      height: $size-header-height-mobile-portrait
 
 </style>
